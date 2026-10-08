@@ -37,6 +37,26 @@ async function laadProducten() {
     // Bij een klik: het aantal van dit product met 1 verhogen en opnieuw berekenen.
     knop.onclick = () => { mandje.set(p.id, (mandje.get(p.id) || 0) + 1); bereken(); };
     li.appendChild(knop);
+
+    // Knop om één stuk van dit product weer uit het mandje te halen.
+    const minKnop = document.createElement('button');
+    minKnop.textContent = '−';
+    minKnop.title = 'Eén stuk uit het mandje halen';
+    minKnop.className = 'min';
+    minKnop.onclick = () => {
+      const aantal = mandje.get(p.id) || 0;
+      // Zit het product niet in het mandje, dan is er niets om weg te halen.
+      if (aantal === 0) return;
+      // Bij het laatste stuk halen we het product helemaal uit het mandje.
+      // Een regel met aantal 0 zou de server weigeren ("Ongeldig aantal").
+      if (aantal === 1) {
+        mandje.delete(p.id);
+      } else {
+        mandje.set(p.id, aantal - 1);
+      }
+      bereken();
+    };
+    li.appendChild(minKnop);
     lijst.appendChild(li);
   }
 }

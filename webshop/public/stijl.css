@@ -9,6 +9,7 @@ aside { background: #fff; border-radius: 8px; padding: 1rem 1.5rem; box-shadow: 
 .rij { display: flex; gap: .5rem; margin: .3rem 0 1rem; }
 input { flex: 1; padding: .4rem; }
 button { background: #e30147; color: #fff; border: 0; border-radius: 4px; padding: .4rem .8rem; cursor: pointer; }
+button.min { margin-left: .4rem; background: #fff; color: #e30147; border: 1px solid #e30147; }
 button.stil { background: none; color: #002757; text-decoration: underline; padding: 0; }
 table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
 td { padding: .2rem 0; }
